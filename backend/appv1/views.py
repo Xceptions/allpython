@@ -15,6 +15,12 @@ class HowToViewSet(viewsets.ModelViewSet):
     queryset = HowTo.objects.all()
     serializer_class = HowToSerializer
 
+class AboutView(views.APIView):
+    def get(self, request, format=None):
+        query = About.objects.all()[0]
+        serializer = AboutSerializer(query)
+        return Response(serializer.data)
+
 class ProjectView(views.APIView):
     def get(self, request, format=None):
         query = Project.objects.all().order_by('-id')
@@ -48,8 +54,9 @@ class ProjectDetailsView(views.APIView):
 
 class JobView(views.APIView):
     def get(self, request, format=None):
-        query = Job.objects.all().order_by('-id')
+        query = Job.objects.all().order_by('-id')[:20]
         serializer = JobSerializer(query, many=True)
+        print(serializer.data)
         return Response(serializer.data)
 
     def post(self, request, format=None):
@@ -80,7 +87,7 @@ class JobDetailsView(views.APIView):
 
 class CompetitionView(views.APIView):
     def get(self, request, format=None):
-        query = Competition.objects.all().order_by('-id')
+        query = Competition.objects.all().order_by('-id')[:20]
         serializer = CompetitionSerializer(query, many=True)
         return Response(serializer.data)
 

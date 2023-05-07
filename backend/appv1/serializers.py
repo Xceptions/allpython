@@ -2,12 +2,12 @@ from .models import About, HowTo, Project, Competition, ContactUs, Subscribers, 
 from rest_framework import serializers
 
 
-class AboutSerializer(serializers.HyperlinkedModelSerializer):
+class AboutSerializer(serializers.ModelSerializer):
     class Meta:
         model = About
-        fields = ['the_short', 'the_long']
+        fields = '__all__'
 
-class HowToSerializer(serializers.HyperlinkedModelSerializer):
+class HowToSerializer(serializers.ModelSerializer):
     class Meta:
         model = HowTo
         fields = '__all__'
