@@ -26,7 +26,8 @@ router = routers.DefaultRouter()
 # router.register(r'howto', views.HowToViewSet)
 
 urlpatterns = [
-    path('', include(router.urls)),
+    # path('', include(router.urls)),
+    path('', views.JobView.as_view()),
     path('admin/', admin.site.urls), # my admin page
     path('about/', views.AboutView.as_view()),
 
