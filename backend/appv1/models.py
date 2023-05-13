@@ -18,6 +18,10 @@ class HowTo(models.Model):
     def __str__(self):
         return self.ace_comp
 
+class Learn(models.Model):
+    title = models.TextField()
+    detail = models.TextField()
+
 class Project(models.Model):
     BARGAIN_CHOICES = (
         ('negotiable', 'NEGOTIABLE'),

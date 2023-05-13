@@ -2,7 +2,7 @@ from django.contrib import admin
 
 # Register your models here.
 from django.contrib import admin
-from .models import About, HowTo, Project, Job, Competition, Subscribers, ContactUs
+from .models import About, HowTo, Project, Job, Competition, Subscribers, ContactUs, Learn
 from django.core.mail import send_mass_mail
 
 # ============================ actions ================================================
@@ -23,6 +23,10 @@ class SubscribersAdmin(admin.ModelAdmin):
     search_fields = ['email', 'date']
     ordering = ['email']
     actions = [send_them_mail]
+
+class LearnAdmin(admin.ModelAdmin):
+    list_display = ['title', 'detail']
+    search_fields = ['title']
 
 class ProjectAdmin(admin.ModelAdmin):
     list_display = ['project_header', 'applied', 'date']
@@ -52,3 +56,4 @@ admin.site.register(Project, ProjectAdmin)
 admin.site.register(Competition, CompetitionAdmin)
 admin.site.register(ContactUs, ContactUsAdmin)
 admin.site.register(Job, JobAdmin)
+admin.site.register(Learn, LearnAdmin)
