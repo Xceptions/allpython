@@ -30,6 +30,7 @@ urlpatterns = [
     path('', views.JobView.as_view()),
     path('admin/', admin.site.urls), # my admin page
     path('about/', views.AboutView.as_view()),
+    path('learn/', views.LearnView.as_view()),
 
     path('viewprojects/', views.ProjectView.as_view()), # view list of projects
     path('projectdetails/<project_id>/', views.ProjectDetailsView.as_view()), # view detail of projects

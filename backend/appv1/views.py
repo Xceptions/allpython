@@ -1,7 +1,7 @@
-from .models import About, HowTo, Project, Competition, Job
+from .models import About, HowTo, Project, Competition, Job, Learn
 from rest_framework import viewsets, views, status
 from .serializers import AboutSerializer, HowToSerializer, ProjectSerializer, CompetitionSerializer, \
-    ContactUsSerializer, SubscribersSerializer, JobSerializer
+    ContactUsSerializer, SubscribersSerializer, JobSerializer, LearnSerializer
 from rest_framework.response import Response
 from django.http import Http404
 
@@ -132,15 +132,11 @@ class ContactUsView(views.APIView):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-class CompetitionView(views.APIView):
+class LearnView(views.APIView):
     def get(self, request, format=None):
-        query = Competition.objects.all().order_by('-id')[:20]
-        serializer = CompetitionSerializer(query, many=True)
+        query = Learn.objects.all().order_by('id')
+        serializer = LearnSerializer(query, many=True)
         return Response(serializer.data)
 
     def post(self, request, format=None):
-        serializer = CompetitionSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        pass
