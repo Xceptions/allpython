@@ -21,14 +21,18 @@ from appv1 import views
 from django.conf import settings
 from django.conf.urls.static import static
 
+
 router = routers.DefaultRouter()
 # router.register(r'about', views.AboutViewSet)
 # router.register(r'howto', views.HowToViewSet)
 
 urlpatterns = [
     # path('', include(router.urls)),
-    path('', views.JobView.as_view()),
+    # path('', views.JobView.as_view()),
     path('admin/', admin.site.urls), # my admin page
+    path('url_checker', views.check_url),
+    path('', views.FrontendAppView.as_view()),
+
     path('about/', views.AboutView.as_view()),
     path('learn/', views.LearnView.as_view()),
 
