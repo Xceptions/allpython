@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('contact_us_btn').addEventListener('click', ContactUsHandler);
 
     async function AboutHandler(){
-        fetch('http://127.0.0.1:8000/about/')
+        fetch('/about/')
             .then(function(response) {
                 return response.json();
             })
@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     async function JobHandler(){
-        fetch('http://127.0.0.1:8000/viewjobs/')
+        fetch('/viewjobs/')
             .then(function(response) {
                 return response.json();
             })
@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     async function CompetitionHandler(){
-        fetch('http://127.0.0.1:8000/viewcompetitions/')
+        fetch('/viewcompetitions/')
             .then(function(response) {
                 return response.json();
             })
@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
     async function LearnHandler(){
-        fetch('http://127.0.0.1:8000/learn/')
+        fetch('/learn/')
             .then(function(response) {
                 return response.json();
             })
@@ -123,7 +123,7 @@ document.addEventListener('DOMContentLoaded', function() {
         e.preventDefault();
         var userInput = document.getElementById('subscribe_id').value;
         console.log(userInput);
-        fetch('http://127.0.0.1:8000/subscribe/', {
+        fetch('/subscribe/', {
      
                 method: "POST",
                 body: JSON.stringify({
@@ -146,7 +146,7 @@ document.addEventListener('DOMContentLoaded', function() {
         e.preventDefault();
         var userEmail = document.getElementById('email_contactus').value;
         var userMessage = document.getElementById('message_contactus').value;
-        fetch('http://127.0.0.1:8000/contactus/', {
+        fetch('/contactus/', {
      
                 method: "POST",
                 body: JSON.stringify({
