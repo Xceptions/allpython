@@ -5,6 +5,12 @@
 
 var state = {}
 
+
+function goToPosting(post_link) {
+    // used in the dynamically created buttons
+    window.open(post_link);
+}
+
 document.addEventListener('DOMContentLoaded', function() {
     JobHandler(); // default, when the homepage loads
     
@@ -51,7 +57,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     temp += '<span class="bg-purple-100 text-purple-700 rounded-full px-3 py-1 text-sm">' + job_posting["category"] + '</span>';
                     temp += '<span class="text-slate-600 text-sm flex gap-1 items-center"> <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />';
                     temp += '</svg>' + job_posting["location"] + '</span></div></div><div>';
-                    temp += '<button class="bg-blue-700 text-white font-medium px-4 py-2 rounded-md flex gap-1 items-center"><a href="' + job_posting["contact_me"] + '"> Apply Now <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg></svg></a></button></div></div>';
+                    temp += '<button onclick=goToPosting("' + job_posting["contact_me"] + '") class="bg-blue-700 text-white font-medium px-4 py-2 rounded-md flex gap-1 items-center">Apply Now <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg></svg></button></div></div>';
                     temp += "</div>";
                     html_job += temp;
                 };
@@ -76,7 +82,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     temp += '<span class="bg-purple-100 text-purple-700 rounded-full px-3 py-1 text-sm">' + comp_posting["specialization"] + '</span>';
                     temp += '<span class="text-slate-600 text-sm flex gap-1 items-center"> <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />';
                     temp += '</svg>' + comp_posting["platform"] + '</span></div></div><div>';
-                    temp += '<button class="bg-blue-700 text-white font-medium px-4 py-2 rounded-md flex gap-1 items-center"><a href="' + comp_posting["url"] + '"> Go To Comp <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg></svg></a></button></div></div>';
+                    temp += '<button onclick=goToPosting("' + comp_posting["url"] + '") class="bg-blue-700 text-white font-medium px-4 py-2 rounded-md flex gap-1 items-center"> Go To Comp <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg></svg></button></div></div>';
                     temp += "</div>";
                     html_comp += temp;
                 };
