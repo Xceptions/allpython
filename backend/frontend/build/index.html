@@ -7,8 +7,6 @@
       <title>AllPython</title>
       <link rel="stylesheet" href="static/css/style.css">
       <link rel="icon" href="./static/images/logo4.png">
-      <!-- <script type="text/javascript" src="static/js/script.js" defer></script> -->
-      <script src="static/js/index.js"></script>
    </head>
    <body class="min-h-screen bg-gray-50">
       <div class="max-w-screen-xl mx-auto">
@@ -68,6 +66,7 @@
                </p>
                <div class="mt-5 max-w-xl w-full mx-auto sm:flex sm:justify-center md:mt-8">
                   <form class="mt-3 sm:flex w-full">
+                     {% csrf_token %}
                      <input aria-label="Email" type="email" name="email" id="subscribe_id"
                         class="appearance-none block w-full px-5 py-5 border border-gray-300 text-lg text-gray-900 leading-6 rounded-md placeholder-gray-500 shadow-sm focus:outline-none focus:placeholder-gray-400 focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:flex-1"
                         placeholder="Enter your email" required>
@@ -94,6 +93,7 @@
                <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-center text-gray-900 dark:text-white">Contact Us</h2>
                <p class="mb-8 lg:mb-16 font-light text-center text-gray-500 dark:text-gray-400 sm:text-xl">Got a technical issue? Want to send feedback about a beta feature? Need details about our Business plan? Let us know.</p>
                <form action="#" class="space-y-8">
+                  {% csrf_token %}
                     <div>
                      <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Email</label>
                      <input type="email" id="email_contactus" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light" placeholder="john@doe.com" required>

@@ -30,8 +30,9 @@ urlpatterns = [
     # path('', include(router.urls)),
     # path('', views.JobView.as_view()),
     path('admin/', admin.site.urls), # my admin page
-    path('url_checker', views.check_url),
-    path('', views.FrontendAppView.as_view()),
+    path('', views.index),
+    # path('url_checker', views.check_url),
+    # path('', views.FrontendAppView.as_view()),
 
     path('about/', views.AboutView.as_view()),
     path('learn/', views.LearnView.as_view()),
