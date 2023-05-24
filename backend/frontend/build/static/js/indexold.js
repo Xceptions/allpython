@@ -23,80 +23,13 @@ function goToPosting(post_link) {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-
-    // to handle the urls for routing
-    document.addEventListener("click", (e) => {
-        const { target } = e;
-        if (!target.matches("nav a")) {
-            return;
-        }
-        e.preventDefault();
-        route();
-    });
-
-    const routes = {
-        404: {
-            template: "/templates/404.html",
-            title: "404",
-            description: "Page not found",
-        },
-        "/": {
-            method: JobHandler,
-            template: "/templates/index.html",
-            title: "Home",
-            description: "This is the home page",
-        },
-        "/competitions": {
-            method: CompetitionHandler,
-            template: "/templates/about.html",
-            title: "About Us",
-            description: "This is the about page",
-        },
-        "/learn": {
-            method: LearnHandler,
-            template: "/templates/about.html",
-            title: "About Us",
-            description: "This is the about page",
-        },
-        "/about": {
-            method: AboutHandler,
-            template: "/templates/about.html",
-            title: "About Us",
-            description: "This is the about page",
-        },
-    };
-
-    const route = (event) => {
-        event = event || window.event; // get window.event if event argument not provided
-        event.preventDefault();
-        // window.history.pushState(state, unused, target link);
-        window.history.pushState({}, "", event.target.href);
-        locationHandler();
-    };
-
-    const locationHandler = async () => {
-        const location = window.location.pathname; // get the url path
-        // if the path length is 0, set it to primary page route
-        if (location.length == 0) {
-            location = "/";
-        }
-        const route = routes[location] || routes["404"];
-        (route["method"])();
-        document.title = route.title;
-        // set the description of the document to the description of the route
-        document
-            .querySelector('meta[name="description"]')
-            .setAttribute("content", route.description);
-    };
-
-    // add an event listener to the window that watches for url changes
-    window.onpopstate = locationHandler;
-    // call the urlLocationHandler function to handle the initial url
-    window.route = route;
-    // call the urlLocationHandler function to handle the initial url
-    locationHandler();
-
-    // for subscription and contact
+    
+    JobHandler(); // default, when the homepage loads
+    
+    document.getElementById('job_handler').addEventListener('click', JobHandler);
+    document.getElementById('competition_handler').addEventListener('click', CompetitionHandler);
+    document.getElementById('about_handler').addEventListener('click', AboutHandler);
+    document.getElementById('learn_handler').addEventListener('click', LearnHandler);
     document.getElementById('subscribe_btn').addEventListener('click', SubscribeHandler);
     document.getElementById('contact_us_btn').addEventListener('click', ContactUsHandler);
 
