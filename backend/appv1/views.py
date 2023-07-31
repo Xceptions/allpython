@@ -101,7 +101,6 @@ class JobView(views.APIView):
     def get(self, request, format=None):
         query = Job.objects.all().order_by('-id')[:20]
         serializer = JobSerializer(query, many=True)
-        print(serializer.data)
         return Response(serializer.data)
 
     def post(self, request, format=None):

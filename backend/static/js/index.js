@@ -46,6 +46,12 @@ document.addEventListener('DOMContentLoaded', function() {
             title: "Home",
             description: "This is the home page",
         },
+	"/jobs": {
+            method: JobHandler,
+	    template: "/templates/index.html",
+	    title: "Jobs",
+	    description: "This is the jobs page",
+	},
         "/competitions": {
             method: CompetitionHandler,
             template: "/templates/about.html",
@@ -127,6 +133,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // make request
         fetch('/viewjobs/')
             .then(function(response) {
+		console.log(response);
                 return response.json();
             })
             .then(function(result) {
@@ -154,6 +161,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         fetch('/viewcompetitions/')
             .then(function(response) {
+		console.log(response);
                 return response.json();
             })
             .then(function(result) {

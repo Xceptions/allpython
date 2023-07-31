@@ -31,6 +31,7 @@ ALLOWED_HOSTS = ['localhost', '127.0.0.1', '0.0.0.0', '34.171.199.103']
 #     'http://localhost:8080'
 # ] 
 CORS_ALLOW_ALL_ORIGINS = True
+CSRF_TRUSTED_ORIGINS=['https://*.pythonyard.com']
 
 # Application definition
 

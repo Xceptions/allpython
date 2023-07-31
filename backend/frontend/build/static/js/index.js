@@ -130,7 +130,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 return response.json();
             })
             .then(function(result) {
-                // console.log(JSON.stringify(result));
+              // console.log(JSON.stringify(result));
                 var html_job = "<div class='job_container'>";
                 for (let idx in result) {
                     var job_posting = result[idx];
