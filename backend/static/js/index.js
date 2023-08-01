@@ -97,6 +97,9 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('contact_us_btn').addEventListener('click', ContactUsHandler);
 
     async function AboutHandler(){
+        // start by showing a loader spinner
+        document.getElementById('content').innerHTML = loader_spinner();
+        
         fetch('/about/')
             .then(function(response) {
                 return response.json();
