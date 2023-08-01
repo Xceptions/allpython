@@ -42,31 +42,21 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         "/": {
             method: JobHandler,
-            template: "/templates/index.html",
             title: "Home",
             description: "This is the home page",
         },
-	"/jobs": {
-            method: JobHandler,
-	    template: "/templates/index.html",
-	    title: "Jobs",
-	    description: "This is the jobs page",
-	},
         "/competitions": {
             method: CompetitionHandler,
-            template: "/templates/about.html",
-            title: "About Us",
+            title: "Competition",
             description: "This is the about page",
         },
         "/learn": {
             method: LearnHandler,
-            template: "/templates/about.html",
-            title: "About Us",
+            title: "Learn",
             description: "This is the about page",
         },
         "/about": {
             method: AboutHandler,
-            template: "/templates/about.html",
             title: "About Us",
             description: "This is the about page",
         },
