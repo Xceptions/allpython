@@ -22,6 +22,8 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 
+handler404 = 'appv1.views.handler404'
+
 router = routers.DefaultRouter()
 # router.register(r'about', views.AboutViewSet)
 # router.register(r'howto', views.HowToViewSet)

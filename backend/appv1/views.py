@@ -5,7 +5,7 @@ from .serializers import AboutSerializer, HowToSerializer, ProjectSerializer, Co
 from rest_framework.response import Response
 from django.http import Http404
 
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.views.generic import View
 from django.views.decorators.csrf import csrf_exempt
@@ -49,6 +49,10 @@ import os
 
 def index(request):
     return render(request, 'build/index.html')
+
+
+def handler404(request, *args, **argv):
+    return redirect('/')
 
 
 class AboutViewSet(viewsets.ModelViewSet):

@@ -118,7 +118,7 @@ document.addEventListener('DOMContentLoaded', function() {
             .then(function(result) {
                 // console.log(JSON.stringify(result));
                 var html_learn = "<div class='learn_container'>";
-                // html_learn += "<div id='python_jobs_header'>Python Jobs</div>";
+                html_learn += "<div id='python_jobs_header'>Python Jobs</div>";
                 for (let idx in result) {
                     var learn_posting = result[idx];
                     var temp = '<div class="mt-4 mx-auto max-w-screen-sm px-4 sm:px-6 py-24 bg-white text-gray-700" style="border-radius: 2rem;"><div class="text-center">';
