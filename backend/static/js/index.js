@@ -41,28 +41,30 @@ document.addEventListener('DOMContentLoaded', function() {
             description: "Page not found",
         },
         "/": {
-            method: JobHandler,
-            template: "/templates/index.html",
+            method: DefaultHandler,
             title: "Home",
-            description: "This is the home page",
+            description: "Home page",
+        },
+        "/jobs": {
+            method: JobHandler,
+            title: "Job",
+            description: "Job page",
         },
         "/competitions": {
             method: CompetitionHandler,
-            template: "/templates/about.html",
-            title: "About Us",
-            description: "This is the about page",
+            title: "Competitions",
+            description: "Competition page",
         },
         "/learn": {
             method: LearnHandler,
-            template: "/templates/about.html",
-            title: "About Us",
-            description: "This is the about page",
+            title: "Learn",
+            description: "Learn page",
         },
         "/about": {
             method: AboutHandler,
             template: "/templates/about.html",
             title: "About Us",
-            description: "This is the about page",
+            description: "About page",
         },
     };
 
@@ -92,13 +94,17 @@ document.addEventListener('DOMContentLoaded', function() {
     // add an event listener to the window that watches for url changes
     window.onpopstate = locationHandler;
     // call the urlLocationHandler function to handle the initial url
-    // window.route = route;
+    window.route = route;
     // call the urlLocationHandler function to handle the initial url
-    // locationHandler();
+    locationHandler();
 
     // for subscription and contact
     document.getElementById('subscribe_btn').addEventListener('click', SubscribeHandler);
     document.getElementById('contact_us_btn').addEventListener('click', ContactUsHandler);
+
+    async function DefaultHandler(){
+        alert("default");
+    }
 
     async function AboutHandler(){
         // start by showing a loader spinner
