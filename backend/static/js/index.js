@@ -42,21 +42,25 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         "/": {
             method: JobHandler,
+            template: "/templates/index.html",
             title: "Home",
             description: "This is the home page",
         },
         "/competitions": {
             method: CompetitionHandler,
-            title: "Competition",
+            template: "/templates/about.html",
+            title: "About Us",
             description: "This is the about page",
         },
         "/learn": {
             method: LearnHandler,
-            title: "Learn",
+            template: "/templates/about.html",
+            title: "About Us",
             description: "This is the about page",
         },
         "/about": {
             method: AboutHandler,
+            template: "/templates/about.html",
             title: "About Us",
             description: "This is the about page",
         },
@@ -76,13 +80,13 @@ document.addEventListener('DOMContentLoaded', function() {
         if (location.length == 0) {
             location = "/";
         }
-        const route = routes[location] || routes["404"];
-        (route["method"])();
-        document.title = route.title;
+        const url_route = routes[location] || routes["404"];
+        (url_route["method"])();
+        document.title = url_route.title;
         // set the description of the document to the description of the route
         document
             .querySelector('meta[name="description"]')
-            .setAttribute("content", route.description);
+            .setAttribute("content", url_route.description);
     };
 
     // add an event listener to the window that watches for url changes
@@ -99,7 +103,7 @@ document.addEventListener('DOMContentLoaded', function() {
     async function AboutHandler(){
         // start by showing a loader spinner
         document.getElementById('content').innerHTML = loader_spinner();
-        
+
         fetch('/about/')
             .then(function(response) {
                 return response.json();
@@ -126,11 +130,10 @@ document.addEventListener('DOMContentLoaded', function() {
         // make request
         fetch('/viewjobs/')
             .then(function(response) {
-		console.log(response);
                 return response.json();
             })
             .then(function(result) {
-                // console.log(JSON.stringify(result));
+              // console.log(JSON.stringify(result));
                 var html_job = "<div class='job_container'>";
                 for (let idx in result) {
                     var job_posting = result[idx];
@@ -154,7 +157,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
         fetch('/viewcompetitions/')
             .then(function(response) {
-		console.log(response);
                 return response.json();
             })
             .then(function(result) {

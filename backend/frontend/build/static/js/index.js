@@ -80,13 +80,13 @@ document.addEventListener('DOMContentLoaded', function() {
         if (location.length == 0) {
             location = "/";
         }
-        const route = routes[location] || routes["404"];
-        (route["method"])();
-        document.title = route.title;
+        const url_route = routes[location] || routes["404"];
+        (url_route["method"])();
+        document.title = url_route.title;
         // set the description of the document to the description of the route
         document
             .querySelector('meta[name="description"]')
-            .setAttribute("content", route.description);
+            .setAttribute("content", url_route.description);
     };
 
     // add an event listener to the window that watches for url changes
@@ -103,7 +103,7 @@ document.addEventListener('DOMContentLoaded', function() {
     async function AboutHandler(){
         // start by showing a loader spinner
         document.getElementById('content').innerHTML = loader_spinner();
-        
+
         fetch('/about/')
             .then(function(response) {
                 return response.json();
