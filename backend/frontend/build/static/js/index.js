@@ -92,9 +92,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // add an event listener to the window that watches for url changes
     window.onpopstate = locationHandler;
     // call the urlLocationHandler function to handle the initial url
-    window.route = route;
+    // window.route = route;
     // call the urlLocationHandler function to handle the initial url
-    locationHandler();
+    // locationHandler();
 
     // for subscription and contact
     document.getElementById('subscribe_btn').addEventListener('click', SubscribeHandler);
