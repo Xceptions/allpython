@@ -5,9 +5,23 @@ postgres:
 install postgres
 run
 ```
-psql -d postgres
+For my mac
 
-CREATE USER allpythonuser WITH ENCRYPTED PASSWORD 'allpythonpass';
+>>> psql -d postgres
 
-CREATE DATABASE allpythondb;
+>>> CREATE USER allpythonuser WITH ENCRYPTED PASSWORD 'allpythonpass';
+
+>>> CREATE DATABASE allpythondb;
+
+
+
+for my google
+
+>>> sudo su - postgres
+
+>> psql
+
+>> CREATE USER allpythonuser WITH ENCRYPTED PASSWORD 'allpythonpass';
+
+>>> CREATE DATABASE allpythondb;
 ```
