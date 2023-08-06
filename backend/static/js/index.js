@@ -187,14 +187,16 @@ document.addEventListener('DOMContentLoaded', function() {
                 return response.json();
             })
             .then(function(result) {
-                // console.log(JSON.stringify(result));
+                console.log(JSON.stringify(result));
                 var html_learn = "<div class='learn_container'>";
                 html_learn += '<h2 class="text-4xl items-center justify-center text-center text-gray-500">Learn</h2>';
+                console.log("got here");
                 for (let idx in result) {
                     var learn_posting = result[idx];
                     var temp = '<div class="mt-4 mx-auto max-w-screen-sm px-4 sm:px-6 py-24 bg-white text-gray-700" style="border-radius: 2rem;"><div class="text-center">';
                     temp += '<p class="text-4xl tracking-tight leading-10 font-normal sm:text-5xl sm:leading-none md:text-6xl">';
                     temp += learn_posting["title"];
+                    console.log("got herere");
                     temp += '</p>';
                     temp += '<br><hr><br>';
                     temp += '</div><p class="mt-3 max-w-md mx-auto text-base sm:text-lg md:mt-5 md:text-xl md:max-w-3xl">';
